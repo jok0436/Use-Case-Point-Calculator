@@ -1,0 +1,5 @@
+<span class="Modal__body-tabbed"><button
+                                id="TAW__button-add" class="UCPC__field--margined">Add</button></span>
+
+<span class="Modal__body-tabbed"><button
+                    id="TAW__button-delete" class="UCPC__field--margined">Delete</button></span>

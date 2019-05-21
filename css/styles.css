@@ -1,0 +1,169 @@
+.UCPC {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+
+.UCPC__title {
+    text-align: center;
+    font-size: x-large;
+}
+
+.UCPC__subtitle {
+    font-size: large;
+    margin: 5px;
+}
+
+.UCPC__inputSection-left {
+    float: left;
+    width: 55%;
+}
+
+.UCPC__inputSection-right {
+    float: right;
+    width: 40%;
+}
+
+.UCPC__field-margined {
+    margin: 5px;
+}
+
+.UCPC__field-italic {
+    font-style: italic;
+}
+
+.Modal {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.Modal__content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 3px solid black;
+    width: 80%;
+    height: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.Modal__close {
+    float: right;
+    font-size: 50px;
+    margin-top: -15px;
+}
+
+.Modal__close:hover,
+.Modal__close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.Modal__header {
+    color: white;
+    padding: 20px 30px;
+    background-color: lightgray;
+    font-size: 20px;
+}
+
+.Modal__body-left {
+    padding: 2px 16px;
+}
+
+.Modal__body-right {
+   position: relative;
+   right: -600px;
+   top: -140px;
+}
+
+.UCPC__table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.UCPC__table td,
+.UCPC__table th {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.UCPC__table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.UCPC__table tr:hover {
+    background-color: #ddd;
+}
+
+.UCPC__table th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    background-color: lightgray;
+    color: black;
+}
+
+.Modal__body-tabbed {
+    margin-left: 40px;
+}
+
+.Modal__body-radio {
+    font-weight: normal;
+}
+
+.Modal__radio-padded {
+    margin: 5px;
+}
+
+.Modal__content-centered {
+    margin: auto;
+    width: 15%;
+    padding: 10px;
+    display: block;
+    position: relative;
+    top: -20%;
+}

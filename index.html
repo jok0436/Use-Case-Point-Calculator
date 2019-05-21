@@ -1,14 +1,188 @@
-<!doctype html>
-<html lang="en">
+<!- UCPC=Use Case Point Calculator ->
+    <!doctype html>
+    <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <title>Use Case Point Calculator</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <head>
+        <meta charset="utf-8">
+        <title>Use Case Point Calculator</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
 
-<body>
-    <script src="UCPC.js"></script>
-</body>
+    <body>
+        <div id="UCPC__field" class="UCPC">
+            <div id="UCPC__title" class="UCPC__title">Use Case Point Calculator</div>
+            <br>
+            <div id="Output__field" class="UCPC__inputSection-right">
+                <div id="Output__title" class="UCPC__subtitle">Project Estimate</div>
+                <hr>
+                Counting how many Environmental Factors(EF) of F1 through F6 are below 3 and how many in F7 through F8
+                are
+                above 3
+                <br><br>
+                The Total comes to
+                <br><br>
+                <input id="Output__total" class="UUCP__field-margined">
+                <br><br>
+                <div id="Output__comment" class="UUCP__field-margined UCPC__field-italic">
+                    * if total is 2 or less 20 man-hrs/UCP will be used.
+                    <br><br>
+                    * if total is 3 or 4 28 man-hrs/UCP will be used.
+                    <br><br>
+                    * if total is 5 or more try hard to make changes to the project so the numbers can be
+                    adjusted or risk of failure is very high.
+                    <br><br>
+                </div>
+                The man-hrs/UCP value comes to
+                <br>
+                <input id="Output__UCPManHours" class="UCPC__field-margined">
+                <br>
+                Hence the Project Estimate is
+                <br>
+                <input id="Output__UCPManMonths" class="UCPC__field-margined"> man-months
+            </div>
+            <div id="UUCP__field" class="UCPC__inputSection-left">
+                <div id="UUCP__title" class="UCPC__subtitle">Unadjusted Use Case Points(UUCP)</div>
+                <hr>
+                <button id="TAW__button" class="UCPC__field-margined"
+                    onclick="modalHandler.showModal('TAW__modal')">Total
+                    Actor
+                    Weight</button>
+                =
+                <input type="text" id="TAW__label" class="UCPC__field-margined">
+                <br>
+                <button id="TUCW__button" class="UCPC__field-margined"
+                    onclick="modalHandler.showModal('UCW__modal')">Total
+                    Use Case Weight</button>
+                based on classes =
+                <input type="text" id="TUCW__label" class="UCPC__field-margined">
+                <br>
+                <label id="UUCP__comment" class="UCPC__field-italic UUCP__field-margined">* Unadjusted Use Case
+                    Points=Total Actor Weights + Total Use Case
+                    Weight</label>
+                <br>
+                <button id="UUCP__button" class="UCPC__field-margined">Unadjusted Use Case Points</button>
+                =
+                <input type="text" id="UUCP__label" class="UCPC__field-margined">
+            </div>
+            <div id="TCF__field" class="UCPC__inputSection-left">
+                <div id="TCF__title" class="UCPC__subtitle">Technical Complexity Factor(TCF)</div>
+                <hr>
+                <button id="TTFW__button" class="UCPC__field-margined"
+                    onclick="modalHandler.showModal('TCW__modal')">Total
+                    Technical Factor Weight</button>
+                =
+                <input type="text" id="TTFW__label" class="UCPC__field-margined">
+                <div id="TCF__comment" class="UCPC__field-margined UCPC__field-italic">
+                    * Tecnical Complexity Factor = 0.6 + (0.01 * Total Technical Factor Weight)
+                </div>
+                <button id="TCF__button" class="UCPC__field-margined">Technical Complexity Factor</button>
+                =
+                <input type="text" id="TCF__label" class="UCPC__field-margined">
+            </div>
+            <div id="EF__field" class="UCPC__inputSection-left">
+                <div id="EF__title" class="UCPC__subtitle">Environmental Factor(EF)</div>
+                <hr>
+                <button id="TEFW__button" class="UCPC__field-margined"
+                    onclick="modalHandler.showModal('EFW__modal')">Total
+                    Environmental Factor Weight</button>
+                =
+                <input type="text" id="TEFW__label" class="UCPC__field-margined">
+                <div id="EF__comment" class="UCPC__field-margined UCPC__field-italic">
+                    * Environmental Factor = 1.4 + (-0.03 * Total Environmental Factor Weight)
+                </div>
+                <button id="EFF__button" class="UCPC__field-margined">Environmental Factor Factor</button>
+                =
+                <input type="text" id="EFF__label" class="UCPC__field-margined">
+            </div>
+            <div id="UCP__field" class="UCPC__inputSection-left">
+                <div id="UCP__title" class="UCPC__subtitle">Use Case Points(UCP)</div>
+                <hr>
+                <div id="UCP__comment" class="UCPC__field-margined UCPC__field-italic">
+                    * Use Case Points = (Unadjusted Use Case Points) * (Technical Complexity Factor) * (Environmental
+                    Factor)
+                </div>
+                <button id="UCP__button" class="UCPC__field-margined">UCP</button>
+                = UUCP * TCF * EF =
+                <input type="text" id="UCP__label" class="UCPC__field-margined">
+            </div>
+        </div>
+        <div id="TAW__modal" class="Modal">
+            <div id="TAW__content" class="Modal__content">
+                <div id="TAW__header" class="Modal__header">
+                    Total Actor Weight
+                    <div id="TAW__close" class="Modal__close" onclick="modalHandler.hideModal('TAW__modal')">
+                        &times;
+                    </div>
+                </div>
+                <div id="TAW__body-left" class="Modal__body-left">
+                    <div id="TAW__title" class="UCPC__subtitle">Weighting Actors</div>
+                    <hr>
+                    <table id="TAW__table" class="UCPC__table">
+                        <tr>
+                            <th>Actor Name</th>
+                            <th>Selected Weight</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <br>
+                    Add Actors
+                    <br>
+                    <p class="Modal__body-tabbed">Enter Actor Name<span class="Modal__body-tabbed"><input type="text"
+                                id="TAW__label-actor" class="UCPC__field-margined"></p></span>
+                    Weigh the Actor
+                    <br><br>
+                    <div id="TAW__Actor-weight" class="Modal__body-radio">
+                        <input type="radio" name="TAW__Actor-weight" class="Modal__radio-padded" value="Simple">
+                        Simple<br>
+                        <input type="radio" name="TAW__Actor-weight" class="Modal__radio-padded" value="Average">
+                        Average<br>
+                        <input type="radio" name="TAW__Actor-weight" class="Modal__radio-padded" value="Complex">
+                        Complex
+                    </div>
+                </div>
+                <div id="TAW__body-right" class="Modal__body-right">
+                    <button id="TAW__Modal-add" class="UCPC__field-margined">Add</button>
+                    <br><br>
+                    <button id="TAW__Modal-delete" class="UCPC__field-margined">Delete</button>
+                    <br><br>
+                    Total Actor Weight
+                    <br>
+                    <input type="text" id="TAW__label-TAW" class="UCPC__field-margined" value="0">
+                </div>
+                <div id="TAW__button-row" class="Modal__content-centered"> <button id="TAW__Modal-ok"
+                        class="UCPC__field-margined">OK</button><button id="TAW__Modal-cancel"
+                        class="UCPC__field-margined">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <div id="UCW__modal" class="Modal">
+            <div id="UCW__content" class="Modal__content">
+                test Total Use Case Weight Based On Classes
+            </div>
+        </div>
+        <div id="TCW__modal" class="Modal">
+            <div id="TCW__content" class="Modal__content">
+                test Total Technical Complexity Weight
+            </div>
+        </div>
+        <div id="EFW__modal" class="Modal">
+            <div id="EFW__content" class="Modal__content">
+                test Environmental Factor Weight
+            </div>
+        </div>
+        <script src="js/UCPC.js"></script>
+        <script src="js/Modal_Handler.js"></script>
+        <script>
+            var modalHandler = new Modal_Handler();
+            window.onclick = function (event) {
+                if (modalHandler.modalActive && event.target == document.getElementById(modalHandler.currentModal)) {
+                    modalHandler.hideModal(modalHandler.currentModal)
+                }
+            }
+        </script>
+    </body>
 
-</html>
+    </html>
