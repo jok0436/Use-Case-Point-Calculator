@@ -1,123 +1,116 @@
-<!- UCPC=Use Case Point Calculator ->
-    <!doctype html>
-    <html lang="en">
+<!-- UCPC=Use Case Point Calculator -->
+<!doctype html>
+<html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <title>Use Case Point Calculator</title>
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>Use Case Point Calculator</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
 
-    <body>
-        <div id="UCPC__field" class="UCPC">
-            <div id="UCPC__title" class="UCPC__title">Use Case Point Calculator</div>
+<body>
+    <div class="UCPC">
+        <div class="UCPC__title">Use Case Point Calculator</div>
+        <br>
+        <div class="UCPC__section-right">
+            <div class="UCPC__subtitle">Project Estimate</div>
+            <hr>
+            Counting how many Environmental Factors(EF) of F1 through F6 are below 3 and how many in F7 through F8
+            are
+            above 3
+            <br><br>
+            The Total comes to
             <br>
-            <div id="Output__field" class="UCPC__inputSection-right">
-                <div id="Output__title" class="UCPC__subtitle">Project Estimate</div>
-                <hr>
-                Counting how many Environmental Factors(EF) of F1 through F6 are below 3 and how many in F7 through F8
-                are
-                above 3
+            <input type="text" id="Output__total">
+            <br><br>
+            <div class="UCPC__italic">
+                * if total is 2 or less<br>20 man-hrs/UCP will be used.
                 <br><br>
-                The Total comes to
+                * if total is 3 or 4<br>28 man-hrs/UCP will be used.
                 <br><br>
-                <input id="Output__total" class="UUCP__field-margined">
+                * if total is 5 or more try hard to make changes to the project so the numbers can be
+                adjusted or risk of failure is very high.
                 <br><br>
-                <div id="Output__comment" class="UUCP__field-margined UCPC__field-italic">
-                    * if total is 2 or less 20 man-hrs/UCP will be used.
-                    <br><br>
-                    * if total is 3 or 4 28 man-hrs/UCP will be used.
-                    <br><br>
-                    * if total is 5 or more try hard to make changes to the project so the numbers can be
-                    adjusted or risk of failure is very high.
-                    <br><br>
-                </div>
-                The man-hrs/UCP value comes to
-                <br>
-                <input id="Output__UCPManHours" class="UCPC__field-margined">
-                <br>
-                Hence the Project Estimate is
-                <br>
-                <input id="Output__UCPManMonths" class="UCPC__field-margined"> man-months
             </div>
-            <div id="UUCP__field" class="UCPC__inputSection-left">
-                <div id="UUCP__title" class="UCPC__subtitle">Unadjusted Use Case Points(UUCP)</div>
-                <hr>
-                <button id="TAW__button" class="UCPC__field-margined"
-                    onclick="modalHandler.showModal('TAW__modal')">Total
-                    Actor
-                    Weight</button>
-                =
-                <input type="text" id="TAW__label" class="UCPC__field-margined">
-                <br>
-                <button id="TUCW__button" class="UCPC__field-margined"
-                    onclick="modalHandler.showModal('UCW__modal')">Total
-                    Use Case Weight</button>
-                based on classes =
-                <input type="text" id="TUCW__label" class="UCPC__field-margined">
-                <br>
-                <label id="UUCP__comment" class="UCPC__field-italic UUCP__field-margined">* Unadjusted Use Case
-                    Points=Total Actor Weights + Total Use Case
-                    Weight</label>
-                <br>
-                <button id="UUCP__button" class="UCPC__field-margined">Unadjusted Use Case Points</button>
-                =
-                <input type="text" id="UUCP__label" class="UCPC__field-margined">
+            The man-hrs/UCP value comes to
+            <br>
+            <input type="text" id="Output__UCPManHours">
+            <br>
+            Hence the Project Estimate is
+            <br>
+            <input type="text" id="Output__UCPManMonths"> man-months
+        </div>
+        <div class="UCPC__section-left">
+            <div class="UCPC__subtitle">Unadjusted Use Case Points(UUCP)</div>
+            <hr>
+            <button onclick="modalHandler.showModal('TAW__modal')">Total
+                Actor Weight</button>=
+            <input type="text" id="TAW__label">
+            <br>
+            <button onclick="modalHandler.showModal('UCW__modal')">Total
+                Use Case Weight</button>
+            based on classes =
+            <input type="text" id="TUCW__label">
+            <br>
+            <label id="UUCP__comment" class="UCPC__italic">* Unadjusted Use Case
+                Points = Total Actor Weights + Total Use Case
+                Weight</label>
+            <br>
+            <button>Unadjusted Use Case Points</button>
+            =
+            <input type="text" id="UUCP__label">
+        </div>
+        <div class="UCPC__section-left">
+            <div class="UCPC__subtitle">Technical Complexity Factor(TCF)</div>
+            <hr>
+            <button onclick="modalHandler.showModal('TCW__modal')">Total
+                Technical Factor Weight</button>
+            =
+            <input type="text" id="TTFW__label">
+            <div class="UCPC__italic">
+                * Tecnical Complexity Factor = 0.6 + (0.01 * Total Technical Factor Weight)
             </div>
-            <div id="TCF__field" class="UCPC__inputSection-left">
-                <div id="TCF__title" class="UCPC__subtitle">Technical Complexity Factor(TCF)</div>
-                <hr>
-                <button id="TTFW__button" class="UCPC__field-margined"
-                    onclick="modalHandler.showModal('TCW__modal')">Total
-                    Technical Factor Weight</button>
-                =
-                <input type="text" id="TTFW__label" class="UCPC__field-margined">
-                <div id="TCF__comment" class="UCPC__field-margined UCPC__field-italic">
-                    * Tecnical Complexity Factor = 0.6 + (0.01 * Total Technical Factor Weight)
-                </div>
-                <button id="TCF__button" class="UCPC__field-margined">Technical Complexity Factor</button>
-                =
-                <input type="text" id="TCF__label" class="UCPC__field-margined">
+            <button>Technical Complexity Factor</button>
+            =
+            <input type="text" id="TCF__label">
+        </div>
+        <div class="UCPC__section-left">
+            <div class="UCPC__subtitle">Environmental Factor(EF)</div>
+            <hr>
+            <button onclick="modalHandler.showModal('EFW__modal')">Total
+                Environmental Factor Weight</button>
+            =
+            <input type="text" id="TEFW__label">
+            <div class="UCPC__margined UCPC__italic">
+                * Environmental Factor = 1.4 + (-0.03 * Total Environmental Factor Weight)
             </div>
-            <div id="EF__field" class="UCPC__inputSection-left">
-                <div id="EF__title" class="UCPC__subtitle">Environmental Factor(EF)</div>
-                <hr>
-                <button id="TEFW__button" class="UCPC__field-margined"
-                    onclick="modalHandler.showModal('EFW__modal')">Total
-                    Environmental Factor Weight</button>
-                =
-                <input type="text" id="TEFW__label" class="UCPC__field-margined">
-                <div id="EF__comment" class="UCPC__field-margined UCPC__field-italic">
-                    * Environmental Factor = 1.4 + (-0.03 * Total Environmental Factor Weight)
-                </div>
-                <button id="EFF__button" class="UCPC__field-margined">Environmental Factor Factor</button>
-                =
-                <input type="text" id="EFF__label" class="UCPC__field-margined">
+            <button>Environmental Factor Factor</button>
+            =
+            <input type="text" id="EFF__label">
+        </div>
+        <div class="UCPC__section-left">
+            <div class="UCPC__subtitle">Use Case Points(UCP)</div>
+            <hr>
+            <div class="UCPC__margined UCPC__italic">
+                * Use Case Points = (Unadjusted Use Case Points) * (Technical Complexity Factor) * (Environmental
+                Factor)
             </div>
-            <div id="UCP__field" class="UCPC__inputSection-left">
-                <div id="UCP__title" class="UCPC__subtitle">Use Case Points(UCP)</div>
-                <hr>
-                <div id="UCP__comment" class="UCPC__field-margined UCPC__field-italic">
-                    * Use Case Points = (Unadjusted Use Case Points) * (Technical Complexity Factor) * (Environmental
-                    Factor)
-                </div>
-                <button id="UCP__button" class="UCPC__field-margined">UCP</button>
-                = UUCP * TCF * EF =
-                <input type="text" id="UCP__label" class="UCPC__field-margined">
-            </div>
+            <button>UCP</button>
+            = UUCP * TCF * EF =
+            <input type="text" id="UCP__label">
         </div>
         <div id="TAW__modal" class="Modal">
-            <div id="TAW__content" class="Modal__content">
-                <div id="TAW__header" class="Modal__header">
+            <div class="Modal__content">
+                <div class="Modal__header">
                     Total Actor Weight
-                    <div id="TAW__close" class="Modal__close" onclick="modalHandler.hideModal('TAW__modal')">
+                    <div class="Modal__close" onclick="modalHandler.hideModal()">
                         &times;
                     </div>
                 </div>
-                <div id="TAW__body-left" class="Modal__body-left">
-                    <div id="TAW__title" class="UCPC__subtitle">Weighting Actors</div>
+                <div class="UCPC__padded">
+                    <div class="UCPC__subtitle">Weighting Actors</div>
                     <hr>
-                    <table id="TAW__table" class="UCPC__table">
+                    <table id="TAW__table" class="Modal__table">
                         <tr>
                             <th>Actor Name</th>
                             <th>Selected Weight</th>
@@ -127,62 +120,500 @@
                             <td></td>
                         </tr>
                     </table>
-                    <br>
-                    Add Actors
-                    <br>
-                    <p class="Modal__body-tabbed">Enter Actor Name<span class="Modal__body-tabbed"><input type="text"
-                                id="TAW__label-actor" class="UCPC__field-margined"></p></span>
-                    Weigh the Actor
-                    <br><br>
-                    <div id="TAW__Actor-weight" class="Modal__body-radio">
-                        <input type="radio" name="TAW__Actor-weight" class="Modal__radio-padded" value="Simple">
-                        Simple<br>
-                        <input type="radio" name="TAW__Actor-weight" class="Modal__radio-padded" value="Average">
-                        Average<br>
-                        <input type="radio" name="TAW__Actor-weight" class="Modal__radio-padded" value="Complex">
-                        Complex
-                    </div>
+                    <b>Add Actors</b>
                 </div>
-                <div id="TAW__body-right" class="Modal__body-right">
-                    <button id="TAW__Modal-add" class="UCPC__field-margined">Add</button>
-                    <br><br>
-                    <button id="TAW__Modal-delete" class="UCPC__field-margined">Delete</button>
-                    <br><br>
-                    Total Actor Weight
+                <div class="UCPC__padded UCPC__section-left">
+                    <p class="Modal__tabbed  UCPC__marginless UCPC__bold">Enter Actor Name
+                        <input type="text" id="TAW__actorName">
+                    </p>
                     <br>
-                    <input type="text" id="TAW__label-TAW" class="UCPC__field-margined" value="0">
+                    <b>Weigh the Actor</b>
+                    <br>
+                    <input type="radio" name="TAW__weight" class="UCPC__margined" value="Simple">
+                    Simple<br>
+                    <input type="radio" name="TAW__weight" class="UCPC__margined" value="Average">
+                    Average<br>
+                    <input type="radio" name="TAW__weight" class="UCPC__margined" value="Complex">
+                    Complex
                 </div>
-                <div id="TAW__button-row" class="Modal__content-centered"> <button id="TAW__Modal-ok"
-                        class="UCPC__field-margined">OK</button><button id="TAW__Modal-cancel"
-                        class="UCPC__field-margined">Cancel</button>
+                <div class="UCPC__padded UCPC__section-right">
+                    <button>Add</button>
+                    <br>
+                    <button>Delete</button>
+                    <br><br>
+                    <b>Total actor weight</b>
+                    <br>
+                    <input type="text" id="TAW__total" value="0">
+                </div>
+                <div class="Modal__center Modal__bottom">
+                    <button>OK</button>
+                    <button>Cancel</button>
                 </div>
             </div>
         </div>
         <div id="UCW__modal" class="Modal">
-            <div id="UCW__content" class="Modal__content">
-                test Total Use Case Weight Based On Classes
+            <div class="Modal__content">
+                <div class="Modal__header">
+                    Total Use Case Weight Based On Classes
+                    <div class="Modal__close" onclick="modalHandler.hideModal()">
+                        &times;
+                    </div>
+                </div>
+                <div class="UCPC__padded">
+                    <div class="UCPC__subtitle">Weighting Use Case Based On Classes</div>
+                    <hr>
+                    <table id="UCW__table" class="Modal__table">
+                        <tr>
+                            <th>Use Case Name</th>
+                            <th>Selected Weight</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <br>
+                    <b>Add Use Cases</b>
+                </div>
+                <div class="UCPC__padded UCPC__section-left">
+                    <p class="Modal__tabbed  UCPC__marginless UCPC__bold">Enter Use Case Name
+                        <input type="text" id="UCW__name">
+                    </p>
+                    <br>
+                    <b>Weigh the The Use Cases Based On Classes</b>
+                    <br><br>
+                    <input type="radio" name="UCW__weight" class="UCPC__margined" value="Simple">
+                    Simple - has fewer than 5 analysis classes<br>
+                    <input type="radio" name="UCW__weight" class="UCPC__margined" value="Average">
+                    Average - has 5 to 10 analysis classes<br>
+                    <input type="radio" name="UCW__weight" class="UCPC__margined" value="Complex">
+                    Complex - has more than 10 analysis classes
+                </div>
+                <div class="UCPC__padded UCPC__section-right">
+                    <button>Add</button>
+                    <br>
+                    <button>Delete</button>
+                    <br><br>
+                    <b>Total Use Case Weight</b>
+                    <br>
+                    <input type="text" id="UCW__total" value="0">
+                </div>
+                <div class="Modal__center Modal__bottom">
+                    <button>OK</button>
+                    <button>Cancel</button>
+                </div>
             </div>
         </div>
         <div id="TCW__modal" class="Modal">
-            <div id="TCW__content" class="Modal__content">
-                test Total Technical Complexity Weight
+            <div class="Modal__content">
+                <div class="Modal__header">
+                    Total Technical Complexity Weight
+                    <div class="Modal__close" onclick="modalHandler.hideModal()">
+                        &times;
+                    </div>
+                </div>
+                <div class="UCPC__subtitle"> Weighting Technical Factors</div>
+                <hr>
+                <div class="UCPC__padded">
+                    <table id="TCW__table" class="Modal__table-borderless">
+                        <tr>
+                            <th>Factor Number</th>
+                            <th>Factor Description</th>
+                            <th>Weight</th>
+                            <th>Selection</th>
+                        </tr>
+                        <tr>
+                            <td>T1</td>
+                            <td>Distributed System</td>
+                            <td>2</td>
+                            <td>
+                                <select id="TCW__T1">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>T2</td>
+                            <td>Response time/performance objectives</td>
+                            <td>1</td>
+                            <td>
+                                <select id="TCW__T2">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>T3</td>
+                            <td>End-user efficiency</td>
+                            <td>1</td>
+                            <td>
+                                <select id="TCW__T3">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>T4</td>
+                            <td>Internal processing complexity</td>
+                            <td>1</td>
+                            <td>
+                                <select id="TCW__T4">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>T5</td>
+                            <td>Code reusability</td>
+                            <td>1</td>
+                            <td>
+                                <select id="TCW__T5">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>T6</td>
+                            <td>Easy to install</td>
+                            <td>0.5</td>
+                            <td>
+                                <select id="TCW__T6">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>T7</td>
+                            <td>Easy to use</td>
+                            <td>0.5</td>
+                            <td>
+                                <select id="TCW__T7">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>T8</td>
+                            <td>Portability to other platforms</td>
+                            <td>2</td>
+                            <td>
+                                <select id="TCW__T8">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>T9</td>
+                            <td>System maintenance</td>
+                            <td>1</td>
+                            <td>
+                                <select id="TCW__T9">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>T10</td>
+                            <td>Concurrent/parallel processing</td>
+                            <td>1</td>
+                            <td>
+                                <select id="TCW__T10">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>T11</td>
+                            <td>Security Features</td>
+                            <td>1</td>
+                            <td>
+                                <select id="TCW__T11">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>T12</td>
+                            <td>Access for third parties</td>
+                            <td>1</td>
+                            <td>
+                                <select id="TCW__T12">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>T13</td>
+                            <td>End user training</td>
+                            <td>1</td>
+                            <td>
+                                <select id="TCW__T13">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <br><br>
+                    Scale of Measure: 0 means the factor is irrelevant & 5 means the factor is essential
+                    for the project
+                    <br>
+                </div>
+                <div class="Modal__center-left Modal__bottom-higher">
+                    <button>Technical Complexity Weight</button>
+                    =
+                    <input type="text" id="TCW__total" value="0">
+                    <br>
+                </div>
+                <div class="Modal__center Modal__bottom">
+                    <button>OK</button>
+                    <button>Cancel</button>
+                </div>
             </div>
         </div>
         <div id="EFW__modal" class="Modal">
-            <div id="EFW__content" class="Modal__content">
-                test Environmental Factor Weight
+            <div class="Modal__content">
+                <div class="Modal__header">
+                    Total Environmental Factor Weight
+                    <div class="Modal__close" onclick="modalHandler.hideModal()">
+                        &times;
+                    </div>
+                </div>
+                <div class="UCPC__padded">
+                    <div class="UCPC__subtitle">Weighting Environmental Factors</div>
+                    <hr>
+                </div>
+                <div class="UCPC__padded UCPC__section-left">
+                    <table id="TCW__table" class="Modal__table-borderless">
+                        <tr>
+                            <th>Factor Number</th>
+                            <th>Factor Description</th>
+                            <th>Weight</th>
+                            <th>Selection</th>
+                        </tr>
+                        <tr>
+                            <td>F1</td>
+                            <td>Familiarity with development process used</td>
+                            <td>1.5</td>
+                            <td>
+                                <select id="EFW__F1">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>F2</td>
+                            <td>Application experience</td>
+                            <td>0.5</td>
+                            <td>
+                                <select id="EFW__F2">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>F3</td>
+                            <td>Object-oriented experience of team</td>
+                            <td>1</td>
+                            <td>
+                                <select id="EFW__F3">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>F4</td>
+                            <td>Lead analyst capability</td>
+                            <td>0.5</td>
+                            <td>
+                                <select id="EFW__F4">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>F5</td>
+                            <td>Motivation of the team</td>
+                            <td>1</td>
+                            <td>
+                                <select id="EFW__F5">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>F6</td>
+                            <td>Stability of requirements</td>
+                            <td>2</td>
+                            <td>
+                                <select id="EFW__F6">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>F7</td>
+                            <td>Part-time staff</td>
+                            <td>-1</td>
+                            <td>
+                                <select id="EFW__F7">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>F8</td>
+                            <td>Difficult programming language</td>
+                            <td>-1</td>
+                            <td>
+                                <select id="EFW__F8">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="UCPC__padded UCPC__section-right">
+                    <b>Scale of Measure</b>
+                    <br>
+                    For factor F1 to F4 a rating of 0 means no experience in the subject, 3 means average & 5 means
+                    expert
+                    <br><br>
+                    For F5, 0 means no motivation for the project, 3 means average & 5 means high motivation
+                    <br><br>
+                    For F6, 0 means extremely unstable requirements, 3 means average & 5 means unchanging requirements
+                    <br><br>
+                    For F7, 0 means no part-time technical staff, 3 means average & 5 means all part time technical
+                    staff
+                    <br><br>
+                    For F8, 0 means easy-to-use programming language, 3 means average & 5 means very difficult language
+                </div>
+                <div class="Modal__center-left Modal__bottom-higher">
+                    <button>Total Environmental Factor Weight</button>
+                    =
+                    <input type="text" id="EFW__total" value="0">
+                </div>
+                <div class="Modal__center Modal__bottom">
+                    <button>OK</button>
+                    <button>Cancel</button>
+                </div>
             </div>
         </div>
-        <script src="js/UCPC.js"></script>
-        <script src="js/Modal_Handler.js"></script>
-        <script>
-            var modalHandler = new Modal_Handler();
-            window.onclick = function (event) {
-                if (modalHandler.modalActive && event.target == document.getElementById(modalHandler.currentModal)) {
-                    modalHandler.hideModal(modalHandler.currentModal)
-                }
+    </div>
+    <script src="js/UCPC.js"></script>
+    <script src="js/Modal_Handler.js"></script>
+    <script>
+        var modalHandler = new Modal_Handler();
+        window.onclick = function (event) {
+            if (modalHandler.modalActive && event.target == document.getElementById(modalHandler.currentModal)) {
+                modalHandler.hideModal(modalHandler.currentModal)
             }
-        </script>
-    </body>
+        }
+    </script>
+</body>
 
-    </html>
+</html>

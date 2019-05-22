@@ -10,9 +10,8 @@ class Modal_Handler {
     this.modalActive = true
   }
 
-  hideModal (whichModal) {
-    this.currentModal = whichModal
-    document.getElementById(whichModal).style.display = 'none'
+  hideModal () {
+    document.getElementById(this.currentModal).style.display = 'none'
     this.modalActive = false
   }
 }

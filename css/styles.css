@@ -1,3 +1,8 @@
+button,
+input {
+    margin: 5px;
+}
+
 .UCPC {
     width: 100%;
     height: 100%;
@@ -15,28 +20,37 @@
     margin: 5px;
 }
 
-.UCPC__inputSection-left {
+.UCPC__section-left {
     float: left;
     width: 55%;
 }
 
-.UCPC__inputSection-right {
+.UCPC__section-right {
     float: right;
     width: 40%;
 }
 
-.UCPC__field-margined {
+.UCPC__margined {
     margin: 5px;
 }
 
-.UCPC__field-italic {
+.UCPC__bold {
+    font-weight: bold;
+}
+
+.UCPC__italic {
     font-style: italic;
 }
 
+.UCPC__marginless {
+    margin: 0%;
+}
+
+.UCPC__padded {
+    padding: 0px 5px 5px 5px;
+}
+
 .Modal {
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
     display: none;
     position: fixed;
     z-index: 1;
@@ -54,15 +68,91 @@
     position: relative;
     background-color: #fefefe;
     margin: auto;
-    padding: 0;
     border: 3px solid black;
     width: 80%;
-    height: 70%;
+    height: 80%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s
+}
+
+.Modal__close {
+    float: right;
+    font-size: 50px;
+    margin-top: -15px;
+}
+
+.Modal__close:hover,
+.Modal__close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.Modal__header {
+    color: white;
+    padding: 10px 10px;
+    background-color: lightgray;
+    font-size: x-large;
+}
+
+.Modal__table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.Modal__table td,
+.Modal__table th {
+    border: 1px solid black;
+    padding: 8px;
+    color: white;
+}
+
+.Modal__table tr:hover {
+    background-color: lightgray;
+}
+
+.Modal__table th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    background-color: lightgray;
+    color: black;
+}
+
+.Modal__table-borderless {
+    width: 100%;
+}
+
+.Modal__table-borderless th {
+    text-align: left;
+    font-weight: bold;
+}
+
+.Modal__tabbed {
+    margin-left: 40px;
+}
+
+.Modal__center {
+    position: fixed;
+    right: 50%;
+}
+
+.Modal__center-left {
+    position: fixed;
+    right: 40%;
+}
+
+.Modal__bottom {
+    position: fixed;
+    bottom: 5%;
+}
+
+.Modal__bottom-higher {
+    position: fixed;
+    bottom: 10%;
 }
 
 @-webkit-keyframes animatetop {
@@ -87,83 +177,4 @@
         top: 0;
         opacity: 1
     }
-}
-
-.Modal__close {
-    float: right;
-    font-size: 50px;
-    margin-top: -15px;
-}
-
-.Modal__close:hover,
-.Modal__close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.Modal__header {
-    color: white;
-    padding: 20px 30px;
-    background-color: lightgray;
-    font-size: 20px;
-}
-
-.Modal__body-left {
-    padding: 2px 16px;
-}
-
-.Modal__body-right {
-   position: relative;
-   right: -600px;
-   top: -140px;
-}
-
-.UCPC__table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.UCPC__table td,
-.UCPC__table th {
-    border: 1px solid black;
-    padding: 8px;
-}
-
-.UCPC__table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.UCPC__table tr:hover {
-    background-color: #ddd;
-}
-
-.UCPC__table th {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    text-align: left;
-    background-color: lightgray;
-    color: black;
-}
-
-.Modal__body-tabbed {
-    margin-left: 40px;
-}
-
-.Modal__body-radio {
-    font-weight: normal;
-}
-
-.Modal__radio-padded {
-    margin: 5px;
-}
-
-.Modal__content-centered {
-    margin: auto;
-    width: 15%;
-    padding: 10px;
-    display: block;
-    position: relative;
-    top: -20%;
 }
