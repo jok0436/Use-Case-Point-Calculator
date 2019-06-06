@@ -20,12 +20,12 @@ input {
     margin: 5px;
 }
 
-.UCPC__section-left {
+.UCPC__section--left {
     float: left;
     width: 55%;
 }
 
-.UCPC__section-right {
+.UCPC__section--right {
     float: right;
     width: 40%;
 }
@@ -107,7 +107,7 @@ input {
 .Modal__table th {
     border: 1px solid black;
     padding: 8px;
-    color: white;
+    color: black;
 }
 
 .Modal__table tr:hover {
@@ -122,11 +122,11 @@ input {
     color: black;
 }
 
-.Modal__table-borderless {
+.Modal__table--borderless {
     width: 100%;
 }
 
-.Modal__table-borderless th {
+.Modal__table--borderless th {
     text-align: left;
     font-weight: bold;
 }
@@ -140,7 +140,7 @@ input {
     right: 50%;
 }
 
-.Modal__center-left {
+.Modal__center--left {
     position: fixed;
     right: 40%;
 }
@@ -148,11 +148,13 @@ input {
 .Modal__bottom {
     position: fixed;
     bottom: 5%;
+    background-color: white;
 }
 
-.Modal__bottom-higher {
+.Modal__bottom--higher {
     position: fixed;
     bottom: 10%;
+    background-color: white;
 }
 
 @-webkit-keyframes animatetop {
